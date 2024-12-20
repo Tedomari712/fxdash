@@ -117,22 +117,22 @@ app.layout = dbc.Container([
                 dbc.CardBody([
                     html.Div([
                         html.I(className="fas fa-chart-line fa-2x text-primary mb-3"),
-                        html.H5("Cumulative Volume", className="card-title text-center"),
-                        html.H2(f"USD {104539901:,.2f}", 
-                               className="text-primary text-center"),
+                        html.H5("Cumulative Volume", className="card-title text-center text-sm"),
+                        html.H3(f"USD {104539901:,.2f}", 
+                               className="text-primary text-center text-2xl font-bold"),
                         dcc.Graph(
                             figure=go.Figure(go.Indicator(
                                 mode="gauge+number",
                                 value=20.91,
-                                title={'text': "Target Progress"},
-                                gauge={'axis': {'range': [0, 100]},
+                                title={'text': "Target Progress, 'font': {'size': 14}"},
+                                gauge={'axis': {'range': [0, 100], 'tickfont': {'size': 10}},
                                        'bar': {'color': "#1a76ff"},
                                        'threshold': {
-                                           'line': {'color': "red", 'width': 4},
+                                           'line': {'color': "red", 'width': 2},
                                            'thickness': 0.75,
                                            'value': 20.91
                                        }},
-                                number={'suffix': "%"}
+                                number={'suffix': "%", 'font': {'size': 20}}
                             )).update_layout(height=150, margin=dict(l=20, r=20, t=30, b=20))
                         )
                     ], className="text-center")
@@ -144,16 +144,17 @@ app.layout = dbc.Container([
                 dbc.CardBody([
                     html.Div([
                         html.I(className="fas fa-money-bill-wave fa-2x text-success mb-3"),
-                        html.H5("Total FX Income", className="card-title text-center"),
-                        html.H2(f"KES {26066041:,.2f}", 
-                               className="text-primary text-center"),
+                        html.H5("Total FX Income", className="card-title text-center text-sm"),
+                        html.H3(f"KES {26066041:,.2f}", 
+                               className="text-primary text-center text-2xl font-bold"),
                         dcc.Graph(
                             figure=go.Figure(go.Indicator(
                                 mode="delta",
                                 value=26066041,
                                 delta={'reference': 30000000,
                                       'relative': True,
-                                      'position': "bottom"},
+                                      'position': "bottom",
+                                       'font': {'size': 16}},
                             )).update_layout(height=150, margin=dict(l=20, r=20, t=30, b=20))
                         )
                     ], className="text-center")
@@ -165,9 +166,9 @@ app.layout = dbc.Container([
                 dbc.CardBody([
                     html.Div([
                         html.I(className="fas fa-bullseye fa-2x text-danger mb-3"),
-                        html.H5("Annual Target Gap", className="card-title text-center"),
-                        html.H2(f"USD {395460099:,.2f}", 
-                               className="text-primary text-center"),
+                        html.H5("Annual Target Gap", className="card-title text-center text-sm"),
+                        html.H3(f"USD {395460099:,.2f}", 
+                               className="text-primary text-center text-2xl font-bold"),
                         html.Div([
                             dcc.Graph(
                                 figure=go.Figure(go.Indicator(
@@ -175,8 +176,9 @@ app.layout = dbc.Container([
                                     value=79.09,
                                     delta={'reference': 100,
                                           'relative': True,
-                                          'position': "bottom"},
-                                    number={'suffix': "%"}
+                                          'position': "bottom",
+                                           'font': {'size': 16}},
+                                    number={'suffix': "%", 'font': {'size': 20}}
                                 )).update_layout(height=150, margin=dict(l=20, r=20, t=30, b=20))
                             )
                         ])
@@ -237,7 +239,7 @@ app.layout = dbc.Container([
                         html.Img(src='/assets/LEMFI.png', className='partner-logo'),
                         html.Img(src='/assets/Nala.png', className='partner-logo'),
                         html.Img(src='/assets/DLocal.png', className='partner-logo'),
-                        html.Img(src='/assets/Starks.JPG', className='partner-logo'),
+                        html.Img(src='/assets/Starks.jpg', className='partner-logo'),
                     ], className="d-flex justify-content-around mb-4"),
                     dcc.Graph(
                         figure=go.Figure(data=[go.Pie(
