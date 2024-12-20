@@ -235,9 +235,9 @@ app.layout = dbc.Container([
                 dbc.CardBody([
                     html.Div([
                         html.Img(src='/assets/LEMFI.png', className='partner-logo'),
-                        html.Img(src='/assets/nala.png', className='partner-logo'),
-                        html.Img(src='/assets/dlocal.png', className='partner-logo'),
-                        html.Img(src='/assets/starks.png', className='partner-logo'),
+                        html.Img(src='/assets/Nala.png', className='partner-logo'),
+                        html.Img(src='/assets/Dlocal.png', className='partner-logo'),
+                        html.Img(src='/assets/Starks.JPG', className='partner-logo'),
                     ], className="d-flex justify-content-around mb-4"),
                     dcc.Graph(
                         figure=go.Figure(data=[go.Pie(
