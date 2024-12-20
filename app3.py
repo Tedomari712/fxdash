@@ -27,7 +27,7 @@ app.index_string = '''<!DOCTYPE html>
 <html>
     <head>
         {%metas%}
-        <title>Treasury Department 2024</title>
+        <title>Treasury Department Dashboard</title>
         {%favicon%}
         {%css%}
         <style>
@@ -124,7 +124,7 @@ app.layout = dbc.Container([
                             figure=go.Figure(go.Indicator(
                                 mode="gauge+number",
                                 value=20.91,
-                                title={'text': "Target Progress, 'font': {'size': 14}"},
+                                title={'text': "Target Progress", 'font': {'size': 14}},
                                 gauge={'axis': {'range': [0, 100], 'tickfont': {'size': 10}},
                                        'bar': {'color': "#1a76ff"},
                                        'threshold': {
@@ -154,7 +154,7 @@ app.layout = dbc.Container([
                                 delta={'reference': 30000000,
                                       'relative': True,
                                       'position': "bottom",
-                                       'font': {'size': 16}},
+                                      'font': {'size': 16}},
                             )).update_layout(height=150, margin=dict(l=20, r=20, t=30, b=20))
                         )
                     ], className="text-center")
@@ -177,7 +177,7 @@ app.layout = dbc.Container([
                                     delta={'reference': 100,
                                           'relative': True,
                                           'position': "bottom",
-                                           'font': {'size': 16}},
+                                          'font': {'size': 16}},
                                     number={'suffix': "%", 'font': {'size': 20}}
                                 )).update_layout(height=150, margin=dict(l=20, r=20, t=30, b=20))
                             )
