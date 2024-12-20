@@ -110,82 +110,80 @@ app.layout = dbc.Container([
         ])
     ]),
 
-    # Key Metrics Cards with Enhanced Design
+    # Key Metrics Cards
     dbc.Row([
+        # Cumulative Volume Card - Larger, centered value
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
-                    html.Div([
-                        html.I(className="fas fa-chart-line fa-2x text-primary mb-3"),
-                        html.H5("Cumulative Volume", className="card-title text-center text-sm"),
-                        html.H3(f"USD {104539901:,.2f}", 
-                               className="text-primary text-center text-2xl font-bold"),
-                        dcc.Graph(
-                            figure=go.Figure(go.Indicator(
-                                mode="gauge+number",
-                                value=20.91,
-                                title={'text': "Target Progress", 'font': {'size': 14}},
-                                gauge={'axis': {'range': [0, 100], 'tickfont': {'size': 10}},
-                                       'bar': {'color': "#1a76ff"},
-                                       'threshold': {
-                                           'line': {'color': "red", 'width': 2},
-                                           'thickness': 0.75,
-                                           'value': 20.91
-                                       }},
-                                number={'suffix': "%", 'font': {'size': 20}}
-                            )).update_layout(height=150, margin=dict(l=20, r=20, t=30, b=20))
+                    html.H6("CUMULATIVE VOLUME", 
+                           className="text-center mb-4"),
+                    html.H3("USD 104,539,901.00",
+                           className="text-center display-4",
+                           style={
+                               'fontSize': '2.5rem', 
+                               'fontWeight': 'bold',
+                               'padding': '2rem 0'
+                           })
+                ])
+            ], className="shadow-sm h-100")
+        ], width=4),
+        
+        # Total FX Income Card - Larger, centered value
+        dbc.Col([
+            dbc.Card([
+                dbc.CardBody([
+                    html.H6("TOTAL FX INCOME",
+                           className="text-center mb-4"),
+                    html.H3("KES 26,066,041.00",
+                           className="text-center display-4",
+                           style={
+                               'fontSize': '2.5rem', 
+                               'fontWeight': 'bold',
+                               'padding': '2rem 0'
+                           })
+                ])
+            ], className="shadow-sm h-100")
+        ], width=4),
+        
+        # Annual Target Gap Card with just gauge, no extra indicators
+        dbc.Col([
+            dbc.Card([
+                dbc.CardBody([
+                    html.H6("ANNUAL TARGET GAP",
+                           className="text-center mb-4"),
+                    html.H3("USD 395,460,099.00",
+                           className="text-center display-4",
+                           style={
+                               'fontSize': '2.5rem', 
+                               'fontWeight': 'bold',
+                               'marginBottom': '1rem'
+                           }),
+                    dcc.Graph(
+                        figure=go.Figure(go.Indicator(
+                            mode="gauge+number",
+                            value=20.91,
+                            title={'text': "Target Progress", 'font': {'size': 12}},
+                            gauge={
+                                'axis': {'range': [0, 100], 'tickfont': {'size': 8}},
+                                'bar': {'color': "#1a76ff"},
+                                'threshold': {
+                                    'line': {'color': "red", 'width': 2},
+                                    'thickness': 0.75,
+                                    'value': 20.91
+                                }
+                            },
+                            number={'font': {'size': 20}, 'suffix': "%"}
+                        )).update_layout(
+                            height=120,
+                            margin=dict(l=30, r=30, t=30, b=20),
+                            paper_bgcolor='rgba(0,0,0,0)',
+                            plot_bgcolor='rgba(0,0,0,0)'
                         )
-                    ], className="text-center")
+                    )
                 ])
-            ], className="shadow-sm")
-        ]),
-        dbc.Col([
-            dbc.Card([
-                dbc.CardBody([
-                    html.Div([
-                        html.I(className="fas fa-money-bill-wave fa-2x text-success mb-3"),
-                        html.H5("Total FX Income", className="card-title text-center text-sm"),
-                        html.H3(f"KES {26066041:,.2f}", 
-                               className="text-primary text-center text-2xl font-bold"),
-                        dcc.Graph(
-                            figure=go.Figure(go.Indicator(
-                                mode="delta",
-                                value=26066041,
-                                delta={'reference': 30000000,
-                                      'relative': True,
-                                      'position': "bottom",
-                                      'font': {'size': 16}},
-                            )).update_layout(height=150, margin=dict(l=20, r=20, t=30, b=20))
-                        )
-                    ], className="text-center")
-                ])
-            ], className="shadow-sm")
-        ]),
-        dbc.Col([
-            dbc.Card([
-                dbc.CardBody([
-                    html.Div([
-                        html.I(className="fas fa-bullseye fa-2x text-danger mb-3"),
-                        html.H5("Annual Target Gap", className="card-title text-center text-sm"),
-                        html.H3(f"USD {395460099:,.2f}", 
-                               className="text-primary text-center text-2xl font-bold"),
-                        html.Div([
-                            dcc.Graph(
-                                figure=go.Figure(go.Indicator(
-                                    mode="number+delta",
-                                    value=79.09,
-                                    delta={'reference': 100,
-                                          'relative': True,
-                                          'position': "bottom",
-                                          'font': {'size': 16}},
-                                    number={'suffix': "%", 'font': {'size': 20}}
-                                )).update_layout(height=150, margin=dict(l=20, r=20, t=30, b=20))
-                            )
-                        ])
-                    ], className="text-center")
-                ])
-            ], className="shadow-sm")
-        ])
+            ], className="shadow-sm h-100")
+        ], width=4)
     ], className="mb-4"),
 
     # Enhanced Visualizations
