@@ -236,7 +236,7 @@ app.layout = dbc.Container([
                     html.Div([
                         html.Img(src='/assets/LEMFI.png', className='partner-logo'),
                         html.Img(src='/assets/Nala.png', className='partner-logo'),
-                        html.Img(src='/assets/Dlocal.png', className='partner-logo'),
+                        html.Img(src='/assets/DLocal.png', className='partner-logo'),
                         html.Img(src='/assets/Starks.JPG', className='partner-logo'),
                     ], className="d-flex justify-content-around mb-4"),
                     dcc.Graph(
