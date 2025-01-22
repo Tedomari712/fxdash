@@ -1,4 +1,4 @@
-# app.py
+# Imports
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
@@ -10,7 +10,7 @@ import dash_bootstrap_components as dbc
 import numpy as np
 import os
 
-# Initialize the app with custom styling
+# App initialization
 app = dash.Dash(
     __name__, 
     external_stylesheets=[
@@ -19,10 +19,10 @@ app = dash.Dash(
     ]
 )
 
-# This is important for Render deployment
+# Render deployment
 server = app.server
 
-# Custom CSS for consistent font styling and enhanced visuals
+# Custom CSS
 app.index_string = '''<!DOCTYPE html>
 <html>
     <head>
@@ -70,7 +70,7 @@ app.index_string = '''<!DOCTYPE html>
     </body>
 </html>'''
 
-# Create DataFrames with the data
+# Dataframes
 monthly_data = pd.DataFrame({
     'Month': ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 'JULY', 'AUGUST', 'SEPTEMBER', 'OCTOBER', 'NOVEMBER', 'DECEMBER'],
     'FX_Volume': [10695001.00, 6050000.00, 12668000.00, 9250000.00, 8050000.00, 7900000.00, 6250000.00, 12204100.00, 8112800.00, 23360000.00, 16290055.00, 7830000.00],
@@ -85,7 +85,7 @@ partner_data = pd.DataFrame({
     'STARKS': [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 300000.00]
 })
 
-# Calculate market share
+# Market share
 total_volume = partner_data[['LEMFI', 'NALA', 'DLOCAL', 'STARKS']].sum().sum()
 market_shares = {
     'LEMFI': partner_data['LEMFI'].sum() / total_volume * 100,
@@ -96,7 +96,7 @@ market_shares = {
 
 # App Layout
 app.layout = dbc.Container([
-    # Header with logo and title
+    # Header
     dbc.Row([
         dbc.Col([
             html.Div([
@@ -112,7 +112,7 @@ app.layout = dbc.Container([
 
     # Key Metrics Cards
     dbc.Row([
-        # Cumulative Volume Card - Larger, centered value
+        # Cumulative Volume Card
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
@@ -129,7 +129,7 @@ app.layout = dbc.Container([
             ], className="shadow-sm h-100")
         ], width=4),
         
-        # Total FX Income Card - Larger, centered value
+        # Total FX Income Card
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
@@ -146,7 +146,7 @@ app.layout = dbc.Container([
             ], className="shadow-sm h-100")
         ], width=4),
         
-        # Annual Target Gap Card with just gauge, no extra indicators
+        # Annual Target Gap Card
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
@@ -186,7 +186,7 @@ app.layout = dbc.Container([
         ], width=4)
     ], className="mb-4"),
 
-    # Enhanced Visualizations
+    # Visualizations
     dbc.Row([
         dbc.Col([
             dbc.Card([
@@ -278,7 +278,7 @@ app.layout = dbc.Container([
         ], width=4)
     ]),
 
-    # Additional Insights
+    # Insights
     dbc.Row([
         dbc.Col([
             dbc.Card([
